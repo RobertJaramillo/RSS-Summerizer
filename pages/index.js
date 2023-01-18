@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('')
+  
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   
@@ -48,8 +49,7 @@ const Home = () => {
         
           <div className="header-title">
             <h1>Prompt Maker</h1>
-            <r>The AI art prompt generator</r>
-            
+            <r>The AI art prompt generator</r>   
           </div>
         
           <div className="header-subtitle">
@@ -57,14 +57,34 @@ const Home = () => {
           </div>
         
         </div>
-        
+
         <div className="prompt-container">
+          
+          <div className="header-subtitle">
+            <h2>Specify the subject (Person, Place, or thing)</h2>
+          </div>
+          <textarea
+            className="Subject-box"
+            placeholder="What is the subject? i.e Person, Building, Car, etc..."
+            value={userInput}
+            onChange={onUserChangedText}
+          />;
+
         <textarea
-          className="prompt-box"
-          placeholder="start typing here"
+          className="Action-box"
+          placeholder="What is the subject doing? Running,  Sitting,  Flying, Driving, etc..."
           value={userInput}
           onChange={onUserChangedText}
         />;
+
+        <textarea
+          className="Style-box"
+          placeholder="What style of image do you want? i.e. Oil painting, High Res, etc..."
+          value={userInput}
+          onChange={onUserChangedText}
+        />;
+
+
   
         {/* Button  */}
         <div className="prompt-buttons">
