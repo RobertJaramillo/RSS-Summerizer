@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration)
 const basePromptPrefix = 'Give a detailed description of a ' 
 const basePromptPostfix = ' surronded by a delapidated stemapunk ruins of a long forgotten city.  It must be a complete sentences'
 
-
+//TO DO: Prompt can be expanded pretty well this is a base implementation.  
 
 
 const generateAction = async (req,  res) => {
