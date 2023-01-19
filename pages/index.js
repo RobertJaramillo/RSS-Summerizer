@@ -8,7 +8,8 @@ const Home = () => {
   const [userInput, setUserInput] = useState('')
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
-  
+  const PromptStylePrefix = ' midJourney '
+  const PromptStylePostfix= '  highly detailed, unreal engine cinematic smooth, in the style of detective pikachu, hannah yata charlie immer, neon purple light, low angle, uhd 8k, sharp focus'
 
 
   const callGenerateEndpoint = async () => {
@@ -27,7 +28,7 @@ const Home = () => {
     const { output } = data;
     console.log("OpenAI replied...", output.text)
   
-    setApiOutput(`${output.text}`);
+    setApiOutput(`${PromptStylePrefix}${output.text}${PromptStylePostfix}`);
     setIsGenerating(false);
   }
 

@@ -5,7 +5,13 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration)
 
-const basePromptPrefix = ""; 
+
+const basePromptPrefix = 'Give a detailed description of a ' 
+const basePromptPostfix = ' surronded by a delapidated stemapunk ruins of a long forgotten city.  It must be a complete sentences'
+
+
+
+
 const generateAction = async (req,  res) => {
 
     //Run the first prompt 
@@ -13,9 +19,9 @@ const generateAction = async (req,  res) => {
 
     const baseCompletion = await openai.createCompletion({
         model: 'text-davinci-003',
-        prompt: `${basePromptPrefix}${req.body.userInput}`,
+        prompt: `${basePromptPrefix}${req.body.userInput}${basePromptPostfix}`,
         temperature: 0.9,
-        max_tokens: 100,
+        max_tokens: 200,
       });
 
     const basePromptOutput = baseCompletion.data.choices.pop();  
